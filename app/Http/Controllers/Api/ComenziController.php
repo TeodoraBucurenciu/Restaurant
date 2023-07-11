@@ -71,4 +71,68 @@ class ComenziController extends Controller
             ], 404);
         }
     }
+
+    public function edit($id){
+        $comenzi=Comenzi::find($id);
+        if($comenzi){
+            return response()->json([
+                'status'=>200,
+                'comenzi'=>$comenzi
+            ], 200);
+        }
+        else{
+            return response()->json([
+                'status'=>404,
+                'message' => 'Nicio comanda gasita'
+            ], 404);
+        }
+    }
+
+    public function update(Request $request, int $id){
+        $validator = Validator::make($request->all(), [
+            'nr_masa' => 'required',
+            'status_comanda' => 'required',
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'status'=>422,
+                'errors'=>$validator->messages(),
+            ], 422);
+        }
+        else{
+            $comenzi=Comenzi::find($id);
+
+            if($comenzi){
+                $comenzi->update([
+                    'nr_masa' => $request->nr_masa,
+                    'status_comanda' => $request->status_comanda,
+                ]);
+
+                return response()->json([
+                    'status'=>200,
+                    'message' => 'Modificat cu succes'
+                ], 200);
+            }
+            else{
+                return response()->json([
+                    'status'=>404,
+                    'message' => 'A aparut o problema'
+                ], 404);
+            }
+        }
+    }
+
+    public function destroy($id){
+        $comenzi=Comenzi::find($id);
+
+        if($comenzi){
+           $comenzi->delete();
+        }
+        else{
+            return response()->json([
+                'status'=>404,
+                'message' => 'Nicio comanda gasita'
+            ], 404);
+        }
+    }
 }
