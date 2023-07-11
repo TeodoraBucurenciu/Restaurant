@@ -52,8 +52,23 @@ class ComenziController extends Controller
                 return response()->json([
                     'status'=>500,
                     'message' => 'A aparut o problema'
-                ], 200);
+                ], 500);
             }
+        }
+    }
+    public function show($id) {
+        $comenzi=Comenzi::find($id);
+        if($comenzi){
+            return response()->json([
+                'status'=>200,
+                'comenzi'=>$comenzi
+            ], 200);
+        }
+        else{
+            return response()->json([
+                'status'=>404,
+                'message' => 'Nicio comanda gasita'
+            ], 404);
         }
     }
 }

@@ -20,6 +20,7 @@ Route::get('produse', [ProduseController::class, 'index']);
 
 Route::get('comenzi', [ComenziController::class, 'index']);
 Route::post('comenzi', [ComenziController::class, 'store']);
+Route::post('comenzi/{id}', [ComenziController::class, 'show']);
 
 Route::get('masa', [MasaController::class, 'index']);
 
