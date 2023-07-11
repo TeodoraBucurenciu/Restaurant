@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ItemComandaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AdministrareController;
@@ -17,14 +18,11 @@ Route::get('administrare', [AdministrareController::class, 'index']);
 
 Route::get('produse', [ProduseController::class, 'index']);
 
-Route::get('comanda', [ComandaController::class, 'index']);
-Route::post('comanda', [ComandaController::class, 'store']);
-Route::put('comanda', [ComandaController::class, 'update']);
-
-
 Route::get('comenzi', [ComenziController::class, 'index']);
 Route::post('comenzi', [ComenziController::class, 'store']);
 
 Route::get('masa', [MasaController::class, 'index']);
+
+Route::get('item_comanda', [ItemComandaController::class, 'index']);
 
 

@@ -13,13 +13,12 @@ class ComenziTableData extends Seeder
      */
     public function run()
     {
-        //DB::table('comenzi')->delete();
         if(DB::table('comenzi')->count() == 0) {
             DB::table('comenzi')->insert([
-                ['nr_masa' => 5, 'ospatar' => 4],
-                ['nr_masa' => 2, 'ospatar' => 6],
-                ['nr_masa' => 9, 'ospatar' => 6],
-                ['nr_masa' => 8, 'ospatar' => 4],
+                ['nr_masa' => 5, 'status'=>1],
+                ['nr_masa' => 2, 'status'=>1],
+                ['nr_masa' => 9, 'status'=>1],
+                ['nr_masa' => 8, 'status'=>1],
             ]);
         }
     }

@@ -13,6 +13,6 @@ class Comenzi extends Model
 
     protected $fillable =[
         'nr_masa',
-        'ospatar',
+        'status_comanda',
     ];
 }

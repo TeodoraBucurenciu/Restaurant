@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Comanda;
+use App\Models\ItemComanda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class ComandaController extends Controller
+class ItemComandaController extends Controller
 {
     public function index() {
-        $comanda = Comanda::all();
-        if($comanda->count()>0){
+        $item_comanda = ItemComanda::all();
+        if($item_comanda->count()>0){
             return response()->json([
                 'status'=> 200,
-                'comanda'=> $comanda
+                'iteme_comanda'=> $item_comanda
             ], 200);
         }
         else {
@@ -25,13 +25,10 @@ class ComandaController extends Controller
         }
     }
 
-    public function store(Request $request) {
+    /*public function store(Request $request) {
         $validator = Validator::make($request->all(), [
-            'cantitate'=> 'required',
-            'id_comanda'=> 'required',
-            'id_produs'=> 'required',
-            'id_tip_produs' =>'required',
-            'pretComanda'=> 'required',
+            'masa'=> 'required',
+            'pret'=> 'required',
         ]);
         if($validator->fails()){
             return response()->json([
@@ -40,14 +37,11 @@ class ComandaController extends Controller
             ], 422);
         }
         else{
-            $comanda=Comanda::create([
-                'cantitate'   => $request->cantitate,
-                'id_comanda' => $request->id_comanda,
-                'id_produs' => $request->id_produs,
-                'id_tip_produs'=>$request->id_tip_produs,
-                'pretComanda'=> $request->pretComanda,
+            $item_comanda=Comanda::create([
+                'masa'   => $request->masa,
+                'pret' => $request->pret,
             ]);
-            if($comanda){
+            if($item_comanda){
                 return response()->json([
                     'status'=>200,
                     'message' => 'Creat cu succes'
@@ -64,11 +58,8 @@ class ComandaController extends Controller
     public function update(Request $request, int $id)
     {
         $validator = Validator::make($request->all(), [
-            'cantitate'=> 'required',
-            'id_comanda'=> 'required',
-            'id_produs'=> 'required',
-            'id_tip_produs' =>'required',
-            'pretComanda'=> 'required',
+            'masa'=> 'required',
+            'pret'=> 'required',
         ]);
         if($validator->fails()){
             return response()->json([
@@ -77,15 +68,12 @@ class ComandaController extends Controller
             ], 422);
         }
         else{
-            $comanda=Comanda::find($id);
+            $item_comanda=Item_Comanda::find($id);
 
-            if($comanda){
+            if($item_comanda){
                 $comanda=Comanda::update([
-                    'cantitate'   => $request->cantitate,
-                    'id_comanda' => $request->id_comanda,
-                    'id_produs' => $request->id_produs,
-                    'id_tip_produs'=>$request->id_tip_produs,
-                    'pretComanda'=> $request->pretComanda,
+                    'masa'   => $request->masa,
+                    'pret' => $request->pret,
                 ]);
 
                 return response()->json([
@@ -100,6 +88,5 @@ class ComandaController extends Controller
                 ], 404);
             }
         }
-    }
-
+    }*/
 }

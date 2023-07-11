@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('comenzi', function (Blueprint $table) {
             $table->id();
             $table->integer('nr_masa');
-            $table->integer('ospatar');
+            $table->integer('status_comanda');
             $table->timestamps();
         });
     }

@@ -29,18 +29,18 @@ class ComenziController extends Controller
     public function store(Request $request) {
        $validator = Validator::make($request->all(), [
            'nr_masa' => 'required',
-           'ospatar' => 'required',
+           'status_comanda' => 'required',
        ]);
         if($validator->fails()){
             return response()->json([
-                'status'=>442,
+                'status'=>422,
                 'errors'=>$validator->messages(),
             ], 422);
         }
         else{
             $comenzi=Comenzi::create([
                 'nr_masa' => $request->nr_masa,
-                'ospatar'=> $request->ospatar,
+                'status_comanda' => $request->status_comanda,
             ]);
             if($comenzi){
                 return response()->json([

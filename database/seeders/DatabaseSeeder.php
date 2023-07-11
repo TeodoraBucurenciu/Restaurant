@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             AdministrareTableData::class,
-            ComandaTableData::class,
             ComenziTableData::class,
             ProduseTableData::class,
             MasaTableData::class,
+            ItemComandaSeeder::class,
         ]);
     }
 }

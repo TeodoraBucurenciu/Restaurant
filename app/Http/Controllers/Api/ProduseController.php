@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Produse;
-
-
 class ProduseController extends Controller
 {
     public function index() {
