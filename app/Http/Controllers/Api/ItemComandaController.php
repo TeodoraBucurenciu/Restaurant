@@ -9,17 +9,17 @@ use Illuminate\Support\Facades\Validator;
 
 class ItemComandaController extends Controller
 {
-    public function index() {
-        $item_comanda = ItemComanda::all();
-        if($item_comanda->count()>0){
+    public function index($id)
+    {
+        $item_comanda = ItemComanda::find($id);
+        if ($item_comanda->count() > 0) {
             return response()->json([
-                'status'=> 200,
-                'iteme_comanda'=> $item_comanda
+                'status' => 200,
+                'iteme_comanda' => $item_comanda
             ], 200);
-        }
-        else {
+        } else {
             return response()->json([
-                'status'=> 404,
+                'status' => 404,
                 'message' => 'No Records Found'
             ], 404);
         }

@@ -15,10 +15,10 @@ class ComenziTableData extends Seeder
     {
         if(DB::table('comenzi')->count() == 0) {
             DB::table('comenzi')->insert([
-                ['nr_masa' => 5, 'status'=>1],
-                ['nr_masa' => 2, 'status'=>1],
-                ['nr_masa' => 9, 'status'=>1],
-                ['nr_masa' => 8, 'status'=>1],
+                ['nr_masa' => 5, 'status_comanda'=>1],
+                ['nr_masa' => 2, 'status_comanda'=>1],
+                ['nr_masa' => 9, 'status_comanda'=>1],
+                ['nr_masa' => 8, 'status_comanda'=>1],
             ]);
         }
     }
